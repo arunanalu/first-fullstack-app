@@ -1,0 +1,2 @@
+use("brasil")
+db.estados.insertMany([{nome: "Rio de Janeiro"}, {nome: "Espírito Santo"}])
