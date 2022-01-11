@@ -21,9 +21,9 @@ const createNewState = async (req, res, next) => {
       name,
     };
 
-    res.status(200).json(result);
+    res.status(201).json(result);
   } catch (error) {
-    console.log(error.message);
+    console.log(error.description);
     next(error);
   }
 };
