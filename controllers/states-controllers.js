@@ -24,7 +24,7 @@ const createNewState = async (req, res, next) => {
 
     res.status(created).json(result);
   } catch (error) {
-    console.log(error.description);
+    console.log(`${error.description}: ${error.message}`);
     next(error);
   }
 };

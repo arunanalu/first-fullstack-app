@@ -25,6 +25,10 @@ const createState = async (name) => {
   if (error) {
     throw errorConstructor(badRequest, error.message, 'O nome está errado');
   }
+  const verify = await statesModels.verifyName(name);
+  if (verify) {
+    throw errorConstructor(badRequest, 'O nome já existe', 'erro');
+  }
   const id = await statesModels.create(name);
   return id;
 };

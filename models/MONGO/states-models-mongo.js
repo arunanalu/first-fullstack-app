@@ -19,4 +19,10 @@ const del = async (id) => {
   await conn.collection('estados').deleteOne({'_id': ObjectId(id)});
 };
 
-module.exports = {states, create, del};
+const verifyName = async (name) => {
+  const conn = await connection();
+  const query = await conn.collection('estados').findOne({name: name});
+  return query;
+};
+
+module.exports = {states, create, del, verifyName};
