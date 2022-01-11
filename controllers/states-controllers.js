@@ -1,9 +1,10 @@
 const statesServices = require('../services/states-services');
+const {success, created} = require('../utils/dictionary/statusCode');
 
 const getAllStates = async (_req, res, next) => {
   try {
     const result = await statesServices.getStates();
-    res.status(200).json(result);
+    res.status(success).json(result);
   } catch (error) {
     console.log(error.message);
     next(error);
@@ -21,7 +22,7 @@ const createNewState = async (req, res, next) => {
       name,
     };
 
-    res.status(201).json(result);
+    res.status(created).json(result);
   } catch (error) {
     console.log(error.description);
     next(error);
@@ -32,7 +33,7 @@ const delNewState = async (req, res, next) => {
   const {id} = req.params;
   try {
     await statesServices.delState(id);
-    res.status(200).json({message: 'estado deletado com sucesso'});
+    res.status(success).json({message: 'estado deletado com sucesso'});
   } catch (error) {
     console.log(error.message);
     next(error);

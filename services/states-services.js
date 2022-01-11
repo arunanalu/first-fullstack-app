@@ -1,7 +1,12 @@
 // const statesModels = require('../models/SQL/states-models-sql');
+const Joi = require('joi');
 const statesModels = require('../models/MONGO/states-models-mongo');
 const {badRequest} = require('../utils/dictionary/statusCode');
 const errorConstructor = require('../utils/functions/errorConstructor');
+
+const nameSchema = Joi.object({
+  name: Joi.string().min(5).required(),
+});
 
 const getStates = async () => {
   const estados = await statesModels.states();
@@ -9,8 +14,14 @@ const getStates = async () => {
 };
 
 const createState = async (name) => {
-  if (!name || name === '' || name.length < 3) {
-    throw errorConstructor(badRequest, 'erro', 'O nome está errado');
+  // if (!name || name === '' || name.length < 3) {
+  //   throw errorConstructor(badRequest, 'erro', 'O nome está errado');
+  // }
+  const {error} = nameSchema.validate({
+    name,
+  });
+  if (error) {
+    throw errorConstructor(badRequest, error.message, 'O nome está errado');
   }
   const id = await statesModels.create(name);
   return id;
