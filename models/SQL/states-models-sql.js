@@ -21,5 +21,11 @@ const del = async (id) => {
   await connection.execute(query, [id]);
 };
 
-module.exports = {states, create, del};
+const verifyName = async (name) => {
+  const query = 'select * from estados where nome = ?';
+  const [rows] = await connection.execute(query, [name]);
+  return rows.length !== 0;
+};
+
+module.exports = {states, create, del, verifyName};
 

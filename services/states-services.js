@@ -1,6 +1,6 @@
-// const statesModels = require('../models/SQL/states-models-sql');
+const statesModels = require('../models/SQL/states-models-sql');
 const Joi = require('joi');
-const statesModels = require('../models/MONGO/states-models-mongo');
+// const statesModels = require('../models/MONGO/states-models-mongo');
 const {badRequest} = require('../utils/dictionary/statusCode');
 const errorConstructor = require('../utils/functions/errorConstructor');
 
