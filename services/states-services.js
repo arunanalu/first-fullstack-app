@@ -1,6 +1,9 @@
+// choose the database you want to use by commenting out one of the lines below
+
 // const statesModels = require('../models/SQL/states-models-sql');
-const Joi = require('joi');
 const statesModels = require('../models/MONGO/states-models-mongo');
+
+const Joi = require('joi');
 const {badRequest} = require('../utils/dictionary/statusCode');
 const errorConstructor = require('../utils/functions/errorConstructor');
 
