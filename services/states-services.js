@@ -8,6 +8,10 @@ const nameSchema = Joi.object({
   name: Joi.string().min(5).required(),
 });
 
+const idSchema = Joi.object({
+  id: Joi.string().alphanum().required(),
+});
+
 const getStates = async () => {
   const estados = await statesModels.states();
   return estados;
@@ -17,9 +21,7 @@ const createState = async (name) => {
   // if (!name || name === '' || name.length < 3) {
   //   throw errorConstructor(badRequest, 'erro', 'O nome está errado');
   // }
-  const {error} = nameSchema.validate({
-    name,
-  });
+  const {error} = nameSchema.validate({name});
   if (error) {
     throw errorConstructor(badRequest, error.message, 'O nome está errado');
   }
@@ -28,6 +30,10 @@ const createState = async (name) => {
 };
 
 const delState = async (id) => {
+  const {error} = idSchema.validate({id});
+  if (error) {
+    throw errorConstructor(badRequest, error.message, 'O id está errado');
+  }
   await statesModels.del(id);
 };
 
