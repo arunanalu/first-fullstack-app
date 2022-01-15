@@ -1,4 +1,8 @@
-// choose the database you want to use by commenting out one of the lines below
+/*
+SQL database it's just here as an example.
+You can opt for sql by modifying the commented line below.
+Tests will only work using mongo
+*/
 
 // const statesModels = require('../models/SQL/states-models-sql');
 const statesModels = require('../models/MONGO/states-models-mongo');
