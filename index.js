@@ -10,7 +10,7 @@ const {PORT} = process.env;
 
 app.use(express.json());
 
-app.get('/', (_req, res) => res.send('Hello World!'));
+app.get('/', (_req, res) => res.send('Hello ! The app is working properly !'));
 
 app.get('/estados', statesControllers.getAllStates);
 
@@ -20,6 +20,6 @@ app.delete('/estados/:id', statesControllers.delNewState);
 
 app.use(error);
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
 
 module.exports = app;
