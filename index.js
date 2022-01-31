@@ -2,7 +2,11 @@ const express = require('express');
 const statesControllers = require('./controllers/states-controllers');
 const error = require('./middlewares/errorMiddleware');
 const app = express();
-const port = 3000;
+// const PORT = 3000;
+
+require('dotenv').config();
+
+const {PORT} = process.env;
 
 app.use(express.json());
 
@@ -16,6 +20,6 @@ app.delete('/estados/:id', statesControllers.delNewState);
 
 app.use(error);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 
 module.exports = app;

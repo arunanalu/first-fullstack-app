@@ -4,7 +4,7 @@ const error = (err, _req, res, _next) => {
 
     return res.status(status).json({message, description});
   }
-  // console.log(err)
+  console.log(err);
   return res.status(500).json({message: 'Internal Error'});
 };
 
