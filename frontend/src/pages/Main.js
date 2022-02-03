@@ -2,20 +2,21 @@ import '../App.css';
 import React from 'react';
 import AppHeader from '../components/header';
 import useGetStates from '../hooks/useGetStates';
+import AddContainer from '../components/addInput';
 
 function Main() {
   const [states] = useGetStates();
+
   return (
     <div className="App">
       <AppHeader />
-      <section className="add-state-container">
-      </section>
+      <AddContainer/>
       <section className="card-container">
         {
           states.map((el) => {
             return (
-              <div className="card">
-                <p key={el._id}>{el.name}</p>
+              <div className="card" key={el._id}>
+                <p>{el.name}</p>
               </div>
             )
           })
