@@ -1,7 +1,8 @@
 import { useState } from "react"
+import getStates from "../services/getStates"
 import putState from "../services/putState"
 
-export default function AddContainer () {
+export default function AddContainer (props) {
 
   const [text, setText] = useState('')
   const [error, setError] = useState(null)
@@ -17,6 +18,8 @@ export default function AddContainer () {
     };
     setError(null)
     setText('');
+    const req = await getStates();
+    props.setStates(req);
   }
 
   let caseError = <p></p>

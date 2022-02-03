@@ -5,12 +5,12 @@ import useGetStates from '../hooks/useGetStates';
 import AddContainer from '../components/addInput';
 
 function Main() {
-  const [states] = useGetStates();
+  const [states, setStates] = useGetStates();
 
   return (
     <div className="App">
       <AppHeader />
-      <AddContainer/>
+      <AddContainer setStates={setStates} />
       <section className="card-container">
         {
           states.map((el) => {

@@ -10,7 +10,7 @@ export default function useGetStates() {
         setStates(res)
     }
     requisition();
-  }, []);
+  }, [states]);
 
-  return [states]
+  return [states, setStates]
 }
