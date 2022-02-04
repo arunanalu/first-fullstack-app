@@ -1,6 +1,7 @@
 import { useState } from "react"
 import getStates from "../services/getStates"
 import putState from "../services/putState"
+import '../css/addcontainer.css'
 
 export default function AddContainer (props) {
 
@@ -23,7 +24,7 @@ export default function AddContainer (props) {
   }
 
   let caseError = <p></p>
-  error ? caseError = <p>{error}</p> : caseError = <p></p>
+  error ? caseError = <p className="error">{error}</p> : caseError = <p></p>
 
   return (
     <section className="add-state-container">
