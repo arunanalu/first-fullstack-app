@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: rgb(0, 0, 0);
-  height: 100vw;
+  height: 100vh;
 }
 
 .card-container {
@@ -30,4 +30,5 @@
   margin-bottom: 40px;
   color: red;
   font-weight: 600;
+  user-select: none;
 }
